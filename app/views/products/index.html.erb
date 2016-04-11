@@ -5,6 +5,11 @@
   <input type='submit' value='New Product'>
 </form>
 
+<form action='/users/new'>
+  <input type='hidden' name='_method' value='put'>
+  <input type='submit' value='Create New User'>
+</form>
+
 <% @products.each do |product| %>
 
 <p><%= product.name.capitalize %>
