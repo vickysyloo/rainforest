@@ -1,0 +1,16 @@
+<h1>Products Home</h1>
+
+<form class = "new_pic_button" action='/products/new'>
+  <input type='hidden' name='_method' value='put'>
+  <input type='submit' value='New Product'>
+</form>
+
+<% @products.each do |product| %>
+
+<p><%= product.name.capitalize %>
+  <%= link_to "View", product_path(product) %>
+  <%= link_to "Edit", edit_product_path(product) %>
+</p>
+
+
+<% end %>
