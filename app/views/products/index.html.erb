@@ -10,6 +10,11 @@
   <input type='submit' value='Create New User'>
 </form>
 
+<form action='/sessions/new'>
+  <input type='hidden' name='_method' value='put'>
+  <input type='submit' value='Log In'>
+</form>
+
 <% @products.each do |product| %>
 
 <p><%= product.name.capitalize %>
