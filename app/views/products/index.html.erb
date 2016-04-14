@@ -1,23 +1,14 @@
-<h1>Products Home</h1>
+<h1>All Products</h1>
 
-<form class = "new_pic_button" action='/products/new'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='submit' value='New Product'>
-</form>
+<p><%= link_to "New Product", new_product_path %></p>
 
-<form action='/users/new'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='submit' value='Create New User'>
-</form>
+<p><%= link_to "Create New User", new_user_path %></p>
 
-<form action='/sessions/new'>
-  <input type='hidden' name='_method' value='put'>
-  <input type='submit' value='Log In'>
-</form>
 
 <% @products.each do |product| %>
 
-<p><%= product.name.capitalize %>
+<p><%= product.name.capitalize %>  |  $<%= product.formatted_price %></p>
+<p>
   <%= link_to "View", product_path(product) %>
   <%= link_to "Edit", edit_product_path(product) %>
 </p>
