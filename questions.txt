@@ -1,0 +1,78 @@
+1) How does the find_by method work?
+
+  find_by(params[:id])
+  It takes an argument, which is the params (input of a user), which is a hash like so
+  params = {product {id: 1, name: "shamwow", etc}
+  so params[:id] (when called within a model controller) will return product[:id]
+
+  (^there has to be an easier way to describe this)
+
+2) What are flash notices and errors? What data type do they resemble?
+
+  Flash notices and errors are message that signal to the user that they are not
+  fulfilling certain input requirements. Data type?
+
+
+3) How do we define a helper method?
+
+  A helper method is created within the ApplicationController that allows this method
+  to be called in the views.
+
+
+
+4) In which file can we find <%= yield %>? What is it's purpose?
+
+  It is found in the application view. The application view structures the overall
+  layout of each view page. The yield section displays the individual contents of each
+  view page. (is there a more eloquent way to put this??)
+
+
+
+5) What are associations? What are the different types of associations?
+
+  Associations allow to tables that are not directly linked to each other (they
+  do not contain each other's foreign_ids) to be connected through a mutually associated
+  table.
+
+  Different types of associations:
+  - has_one
+  - has_one :through
+  - has_many
+  - has_many :through
+  - belongs_to
+  - has_and_belongs_to_many
+
+
+
+6) Which Rails component is responsible for their implementation?
+
+  Associations are implemented in models.
+
+
+
+7) What is a before_filter and when does it run?
+
+  A before_filter is a condition that is set in the controllers. It runs before
+  or after or around
+  whatever you set the condition to.
+
+
+
+8) How do we create a nested form?
+
+  A nested form is created in the routes.rb file by putting 'do' after the primary
+  form and inserting the form to be nested after the line.
+
+9) How have we implemented authorization in Rainforest?
+
+  We used the bcrypt gem, which makes sure that a user's password is not stored
+  as plaintext, using the password_digest input. By using this gem, we must also
+  add a password_confirmation requirement in the new users form, unless it is set
+  to nil, which means that the bcrypt gem wouldn't be activated.
+
+10) How do we add a column to a database?
+
+   rails g migration AddNameToUser name:string
+
+   This creates a new migration that indicates that a "name" column has been
+   adde to the user model, and indicates the properties of the name.
