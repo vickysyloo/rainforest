@@ -1,16 +1,19 @@
-<h1>All Products</h1>
+<h1>Listing products</h1>
 
-<p><%= link_to "New Product", new_product_path %></p>
-
+<p><%= link_to 'New Product', new_product_path %></p>
 <p><%= link_to "Create New User", new_user_path %></p>
 
+<!-- renders a helpful message with numbers of displayed vs. total entries -->
+<h1><small><%= page_entries_info @products %></small></h1>
 
-<% @products.each do |product| %>
-
-<p><%= product.name.capitalize %>  |  $<%= product.formatted_price %></p>
-<p>
-  <%= link_to "View", product_path(product) %>
-  <%= link_to "Edit", edit_product_path(product) %>
-</p>
-
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
 <% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>
+
+<!-- outputs several pagination links such as « First ‹ Prev ... 2 3 4 5 6 7 8 9 10 ... Next › Last » -->
+<%= paginate @products %>
